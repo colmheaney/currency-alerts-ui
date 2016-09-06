@@ -6,7 +6,7 @@
         </div>
 
         <div class="row" *ngFor='let alert of alerts'>
-            <div class='panel alert alert-active' [ngClass]="{ 'alert-complete' : alert.status == 'Not active' }">
+            <div class='panel currency-alert currency-alert-active' [ngClass]="{ 'currency-alert-complete' : alert.status == 'Not active' }">
                 <span>{{ alert.from_currency }}{{ alert.to_currency }}</span>
                 <span class="pull-right">{{ alert.status}}</span>
                 <h4 class="center-text">{{ alert.lower_rate }} - {{ alert.upper_rate }}</h4>

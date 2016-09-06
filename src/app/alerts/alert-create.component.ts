@@ -17,7 +17,6 @@ export class AlertCreateComponent implements OnInit {
     currencies: string[] = CURRENCIES;
     defaultCurrencyFrom: string = "GBP";
     defaultCurrencyTo: string = "EUR";
-    message: string = '';
 
     createAlertForm: FormGroup;
     upper_rate: FormControl;
@@ -52,7 +51,7 @@ export class AlertCreateComponent implements OnInit {
         event.preventDefault(); //otherwise the form will be submitted
         this.yahooFinanceService.getRates(from_currency + '' + to_currency)
             .subscribe(
-                rate => this.exchangeRate = rate,
+                rate => this.exchangeRate = "The exchange rate is: "+rate,
                 error => this.handleError(error)
         );
     }
@@ -70,8 +69,8 @@ export class AlertCreateComponent implements OnInit {
         window.history.back();
     }
 
-    private handleError(error: any) {
-       this.message = 'An error occurred. Please try again';
-    }
+  private handleError(error: any) {
+    this.exchangeRate = "Error getting rate from Yahoo";
+  }
 
 }   

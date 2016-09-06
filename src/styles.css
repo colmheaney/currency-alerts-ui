@@ -23,13 +23,13 @@ body {
 .ng-invalid {
   border-left: 5px solid #a94442; /* red */
 }
-.alert {
-  padding-bottom:30px;
+.currency-alert {
+  padding: 15px 15px 30px 15px;
 }
-.alert-active {
+.currency-alert-active {
     border-left: 5px solid #42A948; /* green */
 }
-.alert-complete {
+.currency-alert-complete {
     border-left: 5px solid #a94442; /* red */
 }
 .center-text {
@@ -43,4 +43,7 @@ body {
 }
 .exchange-rate {
     font-weight: bold;
+}
+.alert {
+  margin-top: 20px;
 }

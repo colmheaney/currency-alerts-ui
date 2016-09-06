@@ -14,7 +14,8 @@ export class UserLoginComponent implements OnInit {
   email: FormControl;
   password: FormControl;
   submitAttempt: boolean = false;
-  message: string = '';
+  showLoginError: boolean = false;
+  loginErrorMsg: string = '';
 
   constructor(
     private router: Router, 
@@ -45,6 +46,7 @@ export class UserLoginComponent implements OnInit {
   }
 
   private handleError(error: any) {
-      this.message = 'Please try again.';
+    this.showLoginError = true;
+    this.loginErrorMsg = error.statusText;
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from './users/user.service';
 import { Router } from '@angular/router';
+// import { FlashMessageComponent } from './flash-message.component';
 
 @Component({
     selector: 'app-root',
@@ -32,22 +33,22 @@ import { Router } from '@angular/router';
         </div>
      </div> 
     `
-})  
+})
 
 export class AppComponent {
     pageTitle: string = "Alert Service";
 
-    constructor(private userService: UserService, private router: Router) {}
+    constructor(private userService: UserService, private router: Router) { }
 
     showNav() {
         return this.userService.isLoggedIn();
     }
 
-  logoutUser() {
-    this.userService.logout();
-  }
+    logoutUser() {
+        this.userService.logout();
+    }
 
-    private dosomething(message:any) {
+    private dosomething(message: any) {
         console.log(message)
     }
 }

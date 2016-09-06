@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Alert } from './alert';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AlertService {
 
-    private alertsUrl = 'http://localhost:1111/api/v1/alerts';
+    private alertsUrl = `${environment.base_api_url}/alerts`;
     private authToken = localStorage.getItem('auth_token');
     private headers = new Headers({
             'Content-Type'    : 'application/json', 

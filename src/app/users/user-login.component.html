@@ -19,6 +19,11 @@
         <a [routerLink]="['register']" class="btn btn-default">Register</a>
       </div>
     </form>
+
+    <div *ngIf='showLoginError' class="alert alert-danger" role="alert">
+      <p [innerText]="loginErrorMsg"></p>
+    </div>
+    
   </div>
 </div>
 
