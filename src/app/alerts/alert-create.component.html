@@ -1,0 +1,49 @@
+<!--<flash-message [message]='message'></flash-message>  -->
+<div class="row">
+  <div class="col-md-4 centered">
+
+    <form class="form" [formGroup]="createAlertForm" (ngSubmit)="createAlert(createAlertForm.value)">
+
+      <div class="form-group col-md-6">
+        <label class="control-label" for="from_currency">From:</label>
+        <select [(ngModel)]="defaultCurrencyFrom" class="form-control" id="from_currency" name="from_currency" formControlName="from_currency">
+          <option *ngFor="let c of currencies" [value]="c">{{c}}</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label class="control-label" for="to_currency">To:</label>
+        <select [(ngModel)]="defaultCurrencyTo" class="form-control" id="to_currency" name="to_currency" formControlName="to_currency">
+          <option *ngFor="let c of currencies" [value]="c">{{c}}</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <button class="btn btn-primary center-block margin-top" (click)="getRate(from_currency.value, to_currency.value, $event)">Get Rate</button>
+      </div>
+
+      <div class="row" *ngIf='exchangeRate'>
+        <br />
+        <p class="center-text">The current exchange rate is: 
+          <span class="exchange-rate" [innerText]="exchangeRate"></span>
+        </p>
+        
+        <div class="form-group">
+          <label class="control-label" for="lower_rate">Lower Rate</label>
+          <em *ngIf="!lower_rate.valid && submitAttempt">Number Required</em>
+          <input id="lower_rate" type="number" step="0.0001" min="0" max="{{exchangeRate}}" class="form-control" placeholder="Lower Rate" formControlName="lower_rate">
+        </div>
+
+        <div class="form-group margin-top">
+          <label class="control-label" for="upper_rate">Upper Rate</label>
+          <em *ngIf="!upper_rate.valid && submitAttempt">Number Required</em>
+          <input id="upper_rate" type="number" step="0.0001" min="{{exchangeRate}}" class="form-control" placeholder="Upper Rate" formControlName="upper_rate">
+        </div>
+
+        <div class="row">
+          <button type="submit" class="margin-top center-block btn btn-primary">Create Alert</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
