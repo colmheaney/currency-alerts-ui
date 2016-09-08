@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from './users/user.service';
 import { Router } from '@angular/router';
-// import { FlashMessageComponent } from './flash-message.component';
 
 @Component({
     selector: 'app-root',
@@ -11,7 +10,7 @@ import { Router } from '@angular/router';
             <div class='container'>
 
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-nav" aria-expanded="false">
+                    <button (click)="isCollapsed = !isCollapsed" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mobile-nav" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -20,7 +19,7 @@ import { Router } from '@angular/router';
                     <a class='navbar-brand'>{{pageTitle}}</a>
                 </div>
 
-                <div class="collapse navbar-collapse" id="collapse-nav">
+                <div class="navbar-collapse" [collapse]="isCollapsed" id="#mobile-nav">
                     <ul class='nav navbar-nav navbar-right'>
                         <li><a [routerLink]="['alerts']">Alerts</a></li>
                         <li><a class="pointer" (click)='logoutUser()'>Logout</a></li>
@@ -37,6 +36,7 @@ import { Router } from '@angular/router';
 
 export class AppComponent {
     pageTitle: string = "Alert Service";
+    isCollapsed: boolean = true;
 
     constructor(private userService: UserService, private router: Router) { }
 
@@ -46,9 +46,5 @@ export class AppComponent {
 
     logoutUser() {
         this.userService.logout();
-    }
-
-    private dosomething(message: any) {
-        console.log(message)
     }
 }

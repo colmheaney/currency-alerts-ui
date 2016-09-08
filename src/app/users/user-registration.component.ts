@@ -3,11 +3,10 @@ import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 import { FORM_DIRECTIVES, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { UserService } from '../users/user.service';
-import { FlashMessageComponent } from '../flash-message.component';
 
 @Component({
   templateUrl: './user-registration.component.html',
-  directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES, FlashMessageComponent],
+  directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES],
 })
 export class UserRegistrationComponent implements OnInit {
 

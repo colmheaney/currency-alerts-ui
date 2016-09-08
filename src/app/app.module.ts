@@ -10,7 +10,8 @@ import { UserRegistrationComponent } from './users/user-registration.component';
 import { AlertListComponent } from './alerts/alert-list.component';
 // import { AlertDetailComponent } from './alerts/alert-detail.component';
 import { AlertCreateComponent } from './alerts/alert-create.component';
-import { FlashMessageComponent } from './flash-message.component';
+
+import { CollapseModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { routing } from './app.routing';
 import { AlertService } from './alerts/alert.service';
@@ -24,7 +25,8 @@ import { AuthGuard } from './auth.guard';
     ReactiveFormsModule,
     FormsModule,
     routing,
-    HttpModule
+    HttpModule,
+    CollapseModule,
   ],
   declarations: [ 
     AppComponent,
@@ -33,7 +35,6 @@ import { AuthGuard } from './auth.guard';
     // AlertDetailComponent,
     AlertListComponent,
     AlertCreateComponent,
-    FlashMessageComponent,
   ],
   providers: [
     AlertService,
