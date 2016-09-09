@@ -7,14 +7,14 @@
       <div class="form-group col-md-6">
         <label class="control-label" for="from_currency">From:</label>
         <select [(ngModel)]="defaultCurrencyFrom" class="form-control" id="from_currency" name="from_currency" formControlName="from_currency">
-          <option *ngFor="let c of currencies" [value]="c">{{c}}</option>
+          <option *ngFor="let c of currencies" [value]="c.symbol">{{c.name}}</option>
         </select>
       </div>
 
       <div class="form-group col-md-6">
         <label class="control-label" for="to_currency">To:</label>
         <select [(ngModel)]="defaultCurrencyTo" class="form-control" id="to_currency" name="to_currency" formControlName="to_currency">
-          <option *ngFor="let c of currencies" [value]="c">{{c}}</option>
+          <option *ngFor="let c of currencies" [value]="c.symbol">{{c.name}}</option>
         </select>
       </div>
 

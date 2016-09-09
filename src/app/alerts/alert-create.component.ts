@@ -14,7 +14,7 @@ export class AlertCreateComponent implements OnInit {
 
     pageTitle: string = 'Create new alert';
     exchangeRate: string;
-    currencies: string[] = CURRENCIES;
+    currencies: any[] = CURRENCIES;
     defaultCurrencyFrom: string = "GBP";
     defaultCurrencyTo: string = "EUR";
 
